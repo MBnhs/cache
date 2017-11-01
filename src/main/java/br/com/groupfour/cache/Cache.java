@@ -18,12 +18,12 @@ public class Cache {
 		return CacheHolder.INSTANCE; 
 	}
 	
-	public void put(Object key, Object value) {
-		mapa.put(key, value);
+	public void put(Object object) {
+		mapa.put(object, object);
 	}
 	
-	public Object get(Object key) {
-		return mapa.get(key);
+	public Object get(Object object) {
+		return mapa.get(object);
 	}
 	
 	public void clear() {

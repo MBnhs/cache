@@ -19,9 +19,9 @@ public class CacheTest {
 	
 	@Test
 	public void testPutMethod() {
-		Cache.getInstance().put(1, produto);
+		Cache.getInstance().put(produto);
 		
-		Produto produtoRecuperado = (Produto)Cache.getInstance().get(1);
+		Produto produtoRecuperado = (Produto)Cache.getInstance().get(produto);
 		assertEquals(produto, produtoRecuperado);
 	}
 	
@@ -34,16 +34,16 @@ public class CacheTest {
 		Produto produto5 = new Produto(5, "Produto 5", "Lançamento");
 		
 		List<Produto> produtos = Arrays.asList(produto1, produto2, produto3, produto4, produto5);
-		Cache.getInstance().put("todosOsProdutos", produtos);
-		assertEquals(produtos, Cache.getInstance().get("todosOsProdutos"));
+		Cache.getInstance().put(produtos);
+		assertEquals(produtos, Cache.getInstance().get(produtos));
 		
 		List<Produto> lancamentos = Arrays.asList(produto3);
-		Cache.getInstance().put("lancamentos", lancamentos);
-		assertEquals(lancamentos, Cache.getInstance().get("lancamentos"));
+		Cache.getInstance().put(lancamentos);
+		assertEquals(lancamentos, Cache.getInstance().get(lancamentos));
 		
 		List<Produto> promocoes = Arrays.asList(produto1, produto2, produto4, produto5);
-		Cache.getInstance().put("promocoes", promocoes);
-		assertEquals(promocoes, Cache.getInstance().get("promocoes"));
+		Cache.getInstance().put(promocoes);
+		assertEquals(promocoes, Cache.getInstance().get(promocoes));
 		
 		
 	}
