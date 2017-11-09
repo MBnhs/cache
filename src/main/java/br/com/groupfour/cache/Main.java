@@ -10,6 +10,8 @@ public class Main {
 	static HashMap<String, List<Produto>> mapaCategoria;
 
 	public static void main(String[] args) {
+		String categoria = "Aventura";
+		
 		mapaId = new HashMap<Integer, Produto>();
 		mapaCategoria = new HashMap<String, List<Produto>>();
 		try {
@@ -33,14 +35,14 @@ public class Main {
 			
 			long nanoTimeBanco2 = System.nanoTime();
 			System.out.println("buscando por promocoes no banco");
-			List<Produto> buscaPor = dao.buscaPor("promocao");
+			List<Produto> buscaPor = dao.buscaLancamentosPor(categoria);
 			
 			mapaCategoria.put("promocao", buscaPor);
 			System.out.println(System.nanoTime()- nanoTimeBanco2);
 			
 			long nanoTimeCache2 = System.nanoTime();
 			System.out.println("buscando por promocoes na cache");
-			List<Produto> lista = mapaCategoria.get("promocao");
+			List<Produto> lista = mapaCategoria.get(categoria);
 			System.out.println(System.nanoTime()- nanoTimeCache2);
 			
 
